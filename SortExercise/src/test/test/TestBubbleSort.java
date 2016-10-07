@@ -10,7 +10,7 @@ public class TestBubbleSort {
 
 	int[] array = new int[]{1,1,2,2,3,6,7,9,10,12};
 	
-	
+	int a;
 	
 	
 	@Test
