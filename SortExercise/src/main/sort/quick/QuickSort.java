@@ -8,7 +8,7 @@ public class QuickSort {
 		arr[y] = temp;
 	}
 
-	private void Qsort(int start, int end) {
+	private void qSort(int start, int end) {
 		if (start >= end)
 			return;
 		int mid = arr[end];
@@ -20,17 +20,29 @@ public class QuickSort {
 				right--;
 			swap(left, right);
 		}
-		if (arr[left] >= arr[end])
+		if (arr[left] > arr[end])
 			swap(left, end);
 		else
 			left++;
-		Qsort(start, left - 1);
-		Qsort(left + 1, end);
+		qSort(start, left - 1);
+		qSort(left + 1, end);
 	}
 
 	public int[] sort(int[] array) {
 		arr = array;
-		Qsort(0, arr.length - 1);
+		qSort(0, arr.length - 1);
 		return arr;
+	}
+	
+	public static void main(String[] arg){
+		int[] unsortedArray = new int[]{10, 3, 2,6,7,12,9,1,1,2};
+		
+		QuickSort sort = new QuickSort();
+		
+		int[] expected = sort.sort(unsortedArray);
+		
+		for(int n: expected){
+			System.out.print(n + " ");			
+		}
 	}
 }
