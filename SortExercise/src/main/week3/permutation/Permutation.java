@@ -1,16 +1,42 @@
 package week3.permutation;
 
-import java.util.List;
-
-public class Permutation {
-
-	public List<List<Integer>> permuteUnique(int[] nums) {
-        return null;
-    }
-	
-	public static void main(String[] args) {
-		
-
-	}
-
-}
+public class Permutation{ 
+    public static int total = 0;  
+    public static void swap(String[] str, int i, int j)  
+    {  
+        String temp = new String();  
+        temp = str[i];  
+        str[i] = str[j];  
+        str[j] = temp;  
+    }  
+    public static void permutation (String[] str, int st, int len)  
+    {  
+        if (st == len - 1)  
+        {  
+            for (int i = 0; i < len; i ++)  
+            {  
+                System.out.print(str[i]+ "  ");  
+            }  
+            System.out.println();  
+            total++;  
+        }  
+        else  
+        {  
+            for (int i = st; i < len; i ++)  
+            {  
+                swap(str, st, i);  
+                permutation(str, st + 1, len);  
+                swap(str, st, i);  
+            }  
+        }  
+          
+    }  
+    /** 
+     * @param args 
+     */  
+    public static void main(String[] args) {  
+         String str[] = {"1","2","3","4"};  
+         permutation(str, 0, str.length);  
+         System.out.println(total);  
+    }  
+}  

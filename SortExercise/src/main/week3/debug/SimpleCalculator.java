@@ -38,7 +38,7 @@ public class SimpleCalculator {
 				if (ch == '(') {
 					StackElement element = new StackElement(ch, i);
 					parenthesisStack.push(element);
-				} else if (ch == ')') {
+					} else if (ch == ')') {
 					StackElement element = parenthesisStack.pop();
 
 					String simpleExpression = expression.substring(element.index + 1, i);
@@ -46,14 +46,12 @@ public class SimpleCalculator {
 
 					String beforeExpression = expression.substring(0, element.index);
 					String afterExpression = (i >= expression.length()) ? "" : expression.substring(i + 1, expression.length());
-
 					expression = beforeExpression + value + afterExpression;
+					expression = expression.replaceAll("--","+");
 					break;
 				}
 			}
-			
 		}
-
 		int value = evaluateSimpleFormula(expression);
 		return value;
 
@@ -115,9 +113,9 @@ public class SimpleCalculator {
 
 	public static void main(String[] args) {
 		SimpleCalculator calculator = new SimpleCalculator();
-		String expression = "(((1+((1+2)+(2-1))-(1-3))+1)+1)+1";
+		String expression = "(((1-(1-3)+((1+2)+(2-1)))+1)+1)+1";
 		int value = calculator.calculate(expression);
-		System.out.println(value==10);
+		System.out.println(value);
 	}
 
 }
