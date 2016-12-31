@@ -10,13 +10,13 @@ public class BinarySearchTree {
             root = new TreeNode(data);  
         }else{  
             if(data < node.val){  
-                if(node.left == null){  
-                    node.left = new TreeNode(data);  
+                if(node.left == null){
+                    node.left = new TreeNode(data);
                 }else{  
                 	generateTrees(node.left,data);  
                 }  
             }else{  
-                if(node.right == null){  
+                if(node.right == null){
                     node.right = new TreeNode(data);  
                 }else{  
                 	generateTrees(node.right,data); 
@@ -27,7 +27,6 @@ public class BinarySearchTree {
     
     public static void preOrder(TreeNode node){  
         if(node != null){  
-            System.out.print(node.val);
             preOrder(node.left); 
             preOrder(node.right);
         }
@@ -44,7 +43,6 @@ public class BinarySearchTree {
 			}
 			preOrder(root);
 			root = null;
-			System.out.println();
 		}
 	}
 

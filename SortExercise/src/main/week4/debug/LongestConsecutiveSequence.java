@@ -1,3 +1,4 @@
+
 package week4.debug;
 
 import java.util.HashMap;
@@ -15,6 +16,10 @@ public class LongestConsecutiveSequence {
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 		for (int i=0; i<nums.length; i++) {
 			int n = nums[i];
+			
+			if (map.containsKey(n)) {
+				continue;
+			}
 			
 			/** the length of sequence whose right boundary is n-1 */
 			int left = (map.containsKey(n - 1)) ? map.get(n - 1) : 0;
@@ -45,5 +50,6 @@ public class LongestConsecutiveSequence {
         int num[] = {100, 99, 1, 2, 3, 5, 2, 7, 11, 4, 102, 101};
         int length = longestConsecutiveSequence.longestConsecutive(num);
         System.out.println(length==5);
+        System.out.println(length);
 	}
 }
